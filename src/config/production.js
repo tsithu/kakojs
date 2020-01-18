@@ -15,7 +15,7 @@ export default {
     }
   },
   cors: {
-    whitelist: ['http://localhost:9090', 'https://ddgs.valenno.com', 'http://ddgs.valenno.com']
+    whitelist: ['http://localhost:9090']
   },
   authentication: {
     strategies: ['local'],
@@ -29,8 +29,8 @@ export default {
     jwt: {
       entity: 'tokens',
       jsonWebTokenOptions: {
-        audience: 'https://valenno.com',
-        issuer: 'ddgs.valenno.com',
+        audience: 'https://kakojs.io',
+        issuer: 'kakojs.io',
         algorithm: 'HS256',
         expiresIn: { accessToken: '1h', refreshToken: '30d' }
       }
@@ -68,7 +68,7 @@ export default {
     github: {
       clientID: env.GITHUB_CLIENT_ID,
       clientSecret: env.GITHUB_CLIENT_SECRET,
-      callbackURL: 'http://ddgs.valenno.com/api/auth/login/github/callback',
+      callbackURL: 'http://kakojs.io/api/auth/login/github/callback',
       scope: [
         'public_profile',
         'email'

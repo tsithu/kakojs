@@ -25,8 +25,8 @@ export default env => ({
     jwt: {
       entity: 'tokens',
       jsonWebTokenOptions: {
-        audience: 'https://valenno.com',
-        issuer: 'ddgs.valenno.com',
+        audience: 'https://kakojs.io',
+        issuer: 'kakojs.io',
         algorithm: 'HS256',
         expiresIn: { accessToken: '1h', refreshToken: '30d' }
       }
