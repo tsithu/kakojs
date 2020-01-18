@@ -1,7 +1,7 @@
 import response from 'koa-respond'
 
-export default ({ app }) => {
-  app.use(response())
+export default function ({ app }) {
+  app.use(response(this.options))
 }
 /**
 ok - HTTP 200

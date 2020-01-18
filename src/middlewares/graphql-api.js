@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 
-export default payload => {
+export default function (payload) {
   const { ApolloServer, defaultPlaygroundOptions } = require('apollo-server-koa')
   const { createServer } = require('http')
   const schemas = require('$/modules/core/api/graphql').default
@@ -11,7 +11,7 @@ export default payload => {
   const {
     typeDefs, resolvers, subscriptions, resolverValidationOptions,
     schemaDirectives, validationRules, loaders
-  } = schemas(config)
+  } = schemas(payload)
 
   const playgroundOptions = {
     settings: {

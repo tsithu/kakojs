@@ -2,6 +2,7 @@ import _ from 'lodash'
 import pluralize from 'pluralize'
 import DataLoader from 'dataloader'
 import { raw } from 'objection'
+import loadServices from '$/services'
 
 const opMap = {
   eq: '=',
@@ -22,9 +23,10 @@ function getOperatorAndValue (obj) {
   return { operator, value }
 }
 export default class BaseController {
-  constructor (model, config) {
+  constructor (model, config, services) {
     this.model = model
     this.config = config
+    this.services = loadServices(config, services)
   }
 
   appendQuery (query, filter, logicalOP = 'and') {

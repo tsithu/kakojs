@@ -1,6 +1,6 @@
 import passport from 'koa-passport'
 
-export default ({ app, config, database }) => {
+export default function ({ app, config, database }) {
   const { authentication } = config
   const { userTable, strategies } = authentication
 

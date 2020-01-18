@@ -1,5 +1,5 @@
 import responseTime from 'koa-response-time'
 
-export default ({ app }) => {
-  app.use(responseTime({ hrtime: true }))
+export default function ({ app }) {
+  app.use(responseTime(this.options))
 }

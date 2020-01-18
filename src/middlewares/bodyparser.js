@@ -1,5 +1,5 @@
-import bodyparser from 'koa-bodyparser'
+import koaBody from 'koa-body'
 
-export default ({ app }) => {
-  app.use(bodyparser())
+export default function ({ app }) {
+  app.use(koaBody(this.options))
 }

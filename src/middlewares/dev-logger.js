@@ -1,6 +1,6 @@
 import chalk from 'chalk'
 
-export default ({ app }) => {
+export default function ({ app }) {
   const colorName = ({ statusCode }) => {
     if (statusCode < 300) {
       return 'green'

@@ -10,7 +10,6 @@ import { TokenModel, TokenController } from '$/modules/token'
 import BaseController from '$/modules/core/base/controller'
 
 const SALT_ROUND = 12
-
 export default class AuthController extends BaseController {
   static authStrategy (strategy) {
     return passport.authenticate(strategy)

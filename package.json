@@ -1,7 +1,7 @@
 {
   "name": "kako",
-  "version": "0.1.1",
-  "description": "Nodejs base api make easy.",
+  "version": "0.1.2",
+  "description": "Lightweight nodejs base minimalist framework to make api easy.",
   "keywords": [
     "Koa",
     "Apollo",
@@ -49,8 +49,8 @@
     "jwt-decode": "^2.2.0",
     "knex": "^0.20.5",
     "koa": "^2.11.0",
-    "koa-bodyparser": "^4.2.1",
-    "koa-compose": "^4.2.1",
+    "koa-body": "^4.1.1",
+    "koa-compose": "^4.1.0",
     "koa-favicon": "^2.0.1",
     "koa-static": "^5.0.0",
     "koa-compress": "^3.0.0",

@@ -1,5 +1,5 @@
 import { userAgent } from 'koa-useragent'
 
-export default ({ app }) => {
+export default function ({ app }) {
   app.use(userAgent)
 }

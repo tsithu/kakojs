@@ -1,6 +1,6 @@
 # KaKo Api
 
-> Nodejs Base API.
+> Lightweight nodejs base minimalist framework to make api easy.
 
 ## Build Setup
 
