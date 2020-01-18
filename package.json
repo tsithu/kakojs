@@ -130,6 +130,6 @@
     "webpack": "^4.41.5"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com/"
   }
 }
