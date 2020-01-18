@@ -13,7 +13,7 @@
     "email": "tsithu@valenno.com"
   },
   "contributors": [],
-  "private": true,
+  "private": false,
   "license": "MIT",
   "scripts": {
     "cc": "yarn cache clean",
@@ -124,5 +124,8 @@
     "sass-loader": "^8.0.0",
     "supertest": "^4.0.2",
     "webpack": "^4.41.5"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
