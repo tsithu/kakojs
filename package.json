@@ -12,6 +12,10 @@
     "name": "Tony T. Sithu",
     "email": "tsithu@valenno.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tsithu/kako.git"
+  },
   "contributors": [],
   "private": false,
   "license": "MIT",
@@ -126,6 +130,6 @@
     "webpack": "^4.41.5"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com"
   }
 }
