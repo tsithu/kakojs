@@ -9,7 +9,15 @@ dotenv.config({ path: '.env.development' })
 describe('Core', () => {
   let server = kako({
     config: appConfig(process.env),
-    knexConfig: $config => knexConfig($config)
+    knexConfig: config => knexConfig(config),
+    middlewares: ctx => {
+      const { middlewares } = ctx // config, database
+      return middlewares
+    },
+    modules: ctx => {
+      const { modules } = ctx
+      return modules
+    }
   })
   let request
 

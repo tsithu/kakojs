@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import dotenv from 'dotenv'
 import kako from '$/index'
 import appConfig from ':src/config/development'
