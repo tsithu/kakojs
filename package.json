@@ -25,7 +25,7 @@
     "serve": "yarn dev",
     "prod": "yarn build && yarn start",
     "dev": "cross-env NODE_ENV=development backpack dev",
-    "test": "yarn lint && yarn test:server",
+    "test": "yarn lint && yarn test:server --forceExit",
     "build": "backpack build",
     "start": "cross-env NODE_ENV=production node ./build/main.js",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
