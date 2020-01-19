@@ -23,7 +23,7 @@ function getOperatorAndValue (obj) {
   return { operator, value }
 }
 export default class BaseController {
-  constructor (model, config, services) {
+  constructor(model, config, services) {
     this.model = model
     this.config = config
     this.services = loadServices(config, services)
@@ -79,6 +79,19 @@ export default class BaseController {
     }
   }
 
+  appendOrderBy (query, orderBy) {
+    if (orderBy && orderBy.length > 0) {
+      const { idColumn } = this.model
+      orderBy.map(ob => ob
+        .toLowerCase()
+        .replace('primary_key', idColumn)
+        .replace('_asc', ' asc')
+        .replace('_desc', ' desc')
+        .split(' '))
+        .forEach(ob => query.orderBy(...ob))
+    }
+  }
+
   async index (first, offset, orderBy, filter) {
     return this.find(first, offset, orderBy, filter)
   }
@@ -88,31 +101,32 @@ export default class BaseController {
     const { defaultPageSize, maxPageSize } = paginate
     const pageSize = (first > maxPageSize ? maxPageSize : first) || defaultPageSize
     const page = (offset || 0) / pageSize
-    const { idColumn } = this.model
     const query = this.model.query()
     if (from) {
       query.from(from)
     }
     this.appendQuery(query, filter)
-    if (orderBy && orderBy.length > 0) {
-      orderBy.map(ob => ob
-        .toLowerCase()
-        .replace('primary_key', idColumn)
-        .replace('_asc', ' asc')
-        .replace('_desc', ' desc')
-        .split(' '))
-        .forEach(ob => query.orderBy(...ob))
-    }
+    this.appendOrderBy(query, orderBy)
     return query.page(page, pageSize)
   }
 
-  async findOne (filter) {
+  async findOne (filter, orderBy) {
     if (filter) {
       const query = this.model.query()
       this.appendQuery(query, filter)
+      this.appendOrderBy(query, orderBy)
       return query.first()
     }
     return null
+  }
+
+  async findFirst (filter, orderBy) {
+    return this.findOne(filter, orderBy)
+  }
+
+  async findLast (filter, orderBy = ['primary_key_asc']) {
+    return this.findOne(filter, orderBy
+      .map(o => (o.endsWith('asc') ? o.replace('asc', 'desc') : o.replace('desc', 'asc'))))
   }
 
   async findById (id) {

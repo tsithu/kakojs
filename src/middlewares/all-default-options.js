@@ -23,7 +23,7 @@ export default {
     keepHeadersOnError: true
   }),
   'koa-error': {
-    accepts: ['json', 'html', 'text']
+    accepts: ['json', 'text']
   }, // , 'html', 'text'
   'koa-requestid': {
     expose: 'X-Request-Id',

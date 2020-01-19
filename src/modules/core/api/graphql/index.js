@@ -11,9 +11,11 @@ import getValidationRules from './validation-rules'
 export default ctx => {
   const { config, modules } = ctx
   const buildInModules = getModules(config)
-  const $modules = _.isFunction(modules)
-    ? modules({ config, modules: buildInModules })
-    : [...buildInModules, ...(modules || [])]
+  const $modules = (_.isFunction(modules)
+    ? modules({ config, modules: buildInModules, apiType: 'graphql' })
+    : [...buildInModules, ...(modules || [])])
+    .filter(m => _.isEmpty(m.router))
+
   const typeDefs = getTypeDefs($modules)
   const resolvers = getResolvers($modules)
   const subscriptions = getSubscriptions(config)
@@ -28,5 +30,3 @@ export default ctx => {
     typeDefs, resolvers, subscriptions, resolverValidationOptions, schemaDirectives, loaders, validationRules
   }
 }
-
-// postgraphile -o -c postgres://dbu_gold_master:password123@localhost:5432/gold_master_oms --simple-collections omit -q /api/graphql -i /api/graphiql

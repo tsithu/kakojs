@@ -7,9 +7,9 @@ export default class AuthRoute extends BaseRoute {
     return '/auth' || this.route
   }
 
-  setupRoutes () {
+  init () {
     // call it only when you need default routes
-    // super.setupRoutes()
+    // super.init()
     this.login()
     this.register()
     this.logout()
