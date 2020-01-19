@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-import kako from '$/index'
+import kako from ':'
 import appConfig from ':src/config/development'
 import knexConfig from ':/knexfile'
 

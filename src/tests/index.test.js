@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import supertest from 'supertest'
-import kako from '$'
+import kako from ':'
 import appConfig from '$/config/development'
 import knexConfig from ':/knexfile'
 
