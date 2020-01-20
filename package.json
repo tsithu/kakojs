@@ -1,6 +1,6 @@
 {
   "name": "kakojs",
-  "version": "0.1.4",
+  "version": "0.1.44",
   "description": "Lightweight nodejs base minimalist framework to make api easy.",
   "keywords": [
     "Koa",
@@ -19,7 +19,12 @@
   "contributors": [],
   "private": false,
   "license": "MIT",
-  "main": "index.js",
+  "main": "bin/main.js",
+  "directories": {
+    "bin": "build",
+    "lib": "src",
+    "test": "test/"
+  },
   "scripts": {
     "cc": "yarn cache clean",
     "i": "yarn install",
@@ -122,8 +127,5 @@
     "prettier": "^1.19.1",
     "regenerator-runtime": "^0.13.3",
     "supertest": "^4.0.2"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   }
 }
