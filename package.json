@@ -19,6 +19,7 @@
   "contributors": [],
   "private": false,
   "license": "MIT",
+  "main": "index.js",
   "scripts": {
     "cc": "yarn cache clean",
     "i": "yarn install",

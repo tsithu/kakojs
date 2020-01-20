@@ -20,8 +20,6 @@ export default ({
     app, config: $config, database, middlewares, modules
   })
 
-  process.on('unhandledRejection', err => { $logger.error('Unhandled Rejection at: Promise.', err) })
-
   app.start = (isReady = true) => {
     if (!isTest && (isReady || isProduction)) {
       (httpServer || app).listen({ port, host }, () => {

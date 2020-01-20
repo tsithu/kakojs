@@ -33,7 +33,7 @@ export default $config => {
       return env.HOST || 'localhost'
     },
     get port () {
-      return env.PORT || 9000
+      return env.PORT || 9090
     }
   }
   return { ...$env, ...$config }
