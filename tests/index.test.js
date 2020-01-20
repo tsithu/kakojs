@@ -1,6 +1,7 @@
 import dotenv from 'dotenv'
 import supertest from 'supertest'
-import kako from ':'
+// eslint-disable-next-line import/no-named-as-default
+import kako from '$'
 import appConfig from '$/config/development'
 import knexConfig from ':/knexfile'
 

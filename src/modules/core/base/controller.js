@@ -23,7 +23,7 @@ function getOperatorAndValue (obj) {
   return { operator, value }
 }
 export default class BaseController {
-  constructor(model, config, services) {
+  constructor (model, config, services) {
     this.model = model
     this.config = config
     this.services = loadServices(config, services)

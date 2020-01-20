@@ -1,7 +1,7 @@
 module.exports = {
   verbose: true,
   bail: true,
-  roots: ['./src/tests'],
+  roots: ['./tests'],
   testEnvironment: 'node',
   globals: {
     $kako: false,

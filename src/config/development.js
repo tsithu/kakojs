@@ -25,8 +25,8 @@ export default env => ({
     jwt: {
       entity: 'tokens',
       jsonWebTokenOptions: {
-        audience: 'https://kakojs.io',
-        issuer: 'kakojs.io',
+        audience: 'https://kakojs.org',
+        issuer: 'kakojs.org',
         algorithm: 'HS256',
         expiresIn: { accessToken: '1h', refreshToken: '30d' }
       }
@@ -66,7 +66,7 @@ export default env => ({
     github: {
       clientID: env.GITHUB_CLIENT_ID,
       clientSecret: env.GITHUB_CLIENT_SECRET,
-      callbackURL: 'http://localhost:9000/api/auth/login/github/callback',
+      callbackURL: 'http://localhost:9090/api/auth/login/github/callback',
       scope: [
         'public_profile',
         'email'

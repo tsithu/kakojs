@@ -1,6 +1,6 @@
 {
   "name": "kakojs",
-  "version": "0.1.44",
+  "version": "0.1.46",
   "description": "Lightweight nodejs base minimalist framework to make api easy.",
   "keywords": [
     "Koa",
@@ -19,7 +19,8 @@
   "contributors": [],
   "private": false,
   "license": "MIT",
-  "main": "bin/main.js",
+  "main": "index.js",
+  "type": "module",
   "directories": {
     "bin": "build",
     "lib": "src",
