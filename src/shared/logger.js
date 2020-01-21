@@ -1,7 +1,23 @@
-import pino from 'pino'
-import { name } from ':/package.json'
 
-export default ({ isProduction }) => {
+import _ from 'lodash'
+import pino from 'pino'
+import { name as packageName } from ':/package.json'
+
+export default payload => {
+  let { name, isProduction, NODE_ENV } = payload
+
+  if (_.isEmpty(name)) {
+    name = packageName
+  }
+
+  if (_.isEmpty(NODE_ENV) && _.isString(payload)) {
+    NODE_ENV = payload.toLowerCase()
+  }
+
+  if (_.isEmpty(isProduction)) {
+    isProduction = (NODE_ENV === 'production') || payload === true
+  }
+
   if (global.$logger) return global.$logger
   const options = {
     name,

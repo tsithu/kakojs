@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import Koa from 'koa'
 import applyMiddleware from '$/middlewares'
 import initConfig from '$/config'
@@ -14,7 +15,9 @@ export default ({
     port, host, isTest, isProduction
   } = $config
 
-  global.$logger = initLogger($config)
+  if (_.isEmpty(global.$logger)) {
+    global.$logger = initLogger($config)
+  }
 
   const { httpServer, apolloServer } = applyMiddleware({
     app, config: $config, database, middlewares, modules
