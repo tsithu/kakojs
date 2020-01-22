@@ -1,7 +1,6 @@
 import dotenv from 'dotenv'
 import supertest from 'supertest'
-// eslint-disable-next-line import/no-named-as-default
-import kako from '$'
+import kako from '$/app'
 import appConfig from '$/config/development'
 import knexConfig from ':/knexfile'
 
@@ -37,6 +36,20 @@ describe('Core', () => {
       expect(response.status).toEqual(200)
       expect(response.type).toEqual('application/json')
       expect(response.body.route).toEqual('root')
+    })
+  })
+
+  describe('Rest API Get All Users: GET=>/api/users', () => {
+    test('Should respond as expected.', async () => {
+      const response = await request.get('/api/users')
+      expect(response.status).toEqual(200)
+    })
+  })
+
+  describe('Rest API Get UserById: GET=>/api/users/:id', () => {
+    test('Should respond as expected.', async () => {
+      const response = await request.get('/api/users/1')
+      expect(response.status).toEqual(200)
     })
   })
 

@@ -1,4 +1,4 @@
-import Router from 'koa-router'
+import Router from '@koa/router'
 
 export default ({ app, config, modules }) => {
   // eslint-disable-next-line
@@ -10,4 +10,6 @@ export default ({ app, config, modules }) => {
   loadModules({ router, config, modules })
   app.use(router.routes())
   app.use(router.allowedMethods())
+
+  return { router }
 }

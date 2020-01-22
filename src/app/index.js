@@ -12,7 +12,7 @@ export default ({
   const $config = initConfig(config)
   const database = initDatabase({ config: $config, knexConfig })
   const {
-    port, host, isTest, isProduction
+    port, host, isTest, isProduction, api
   } = $config
 
   if (_.isEmpty(global.$logger)) {
@@ -26,7 +26,7 @@ export default ({
   app.start = (isReady = true) => {
     if (!isTest && (isReady || isProduction)) {
       (httpServer || app).listen({ port, host }, () => {
-        const info = { processId: process.pid }
+        const info = { processId: process.pid, rest: api.rest.baseUrl }
         if (apolloServer) {
           const { graphqlPath, subscriptionsPath } = apolloServer
           Object.assign(info, { graphqlPath, subscriptionsPath })

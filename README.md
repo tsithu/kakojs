@@ -5,14 +5,20 @@
 ## Build Setup
 
 ``` bash
+# Goto example folder
+cd example
+
+# rename .env.sample to .env.development and change the database setting, create database and then migrate db
+yarn db
+
 # install dependencies
 yarn install
 
-# serve with hot reload at localhost:3000
-yarn run dev
+# serve with hot reload at localhost:9090
+yarn dev
 
 # build for production and launch server
-yarn run build
+yarn build
 yarn start
 
 # generate static project

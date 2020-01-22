@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import pluralize from 'pluralize'
 
 export default class BaseRoute {
@@ -19,7 +20,10 @@ export default class BaseRoute {
     return pluralize.singular(this.constructor.name.replace('Route', ''))
   }
 
-  init () {
+  init (router) {
+    if (_.isEmpty(this.router)) {
+      this.router = router
+    }
     this.index()
     this.find()
     this.findOne()

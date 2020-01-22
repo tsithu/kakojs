@@ -57,7 +57,7 @@ export default payload => {
   const $middlewares = _.isFunction(middlewares)
     ? middlewares({ middlewares: buildInMiddlewares, config, database })
     : [...buildInMiddlewares, ...middlewares]
-  const servers = {}
+  const returns = {}
   $middlewares
     .map(mw => (_.isFunction(mw) ? { name: mw.name || 'anonymous', middleware: mw } : mw))
     .filter(mw => isActive(mw))
@@ -67,12 +67,12 @@ export default payload => {
         const rtn = mwFn(_.omit(payload, ['middlewares']))
         if (rtn) {
           const { httpServer, apolloServer } = rtn
-          if (httpServer) Object.assign(servers, { httpServer })
-          if (apolloServer) Object.assign(servers, { apolloServer })
+          if (httpServer) Object.assign(returns, { httpServer })
+          if (apolloServer) Object.assign(returns, { apolloServer })
         }
       } else {
         $logger.error('Middleware should be function.', mwFn)
       }
     })
-  return { app, ...servers }
+  return { app, ...returns }
 }
