@@ -1,6 +1,6 @@
 {
   "name": "kakojs",
-  "version": "0.1.48",
+  "version": "0.1.51",
   "description": "Lightweight nodejs base minimalist framework to make api easy.",
   "keywords": [
     "Koa",
@@ -42,6 +42,7 @@
   "dependencies": {
     "@babel/runtime": "^7.7.7",
     "@koa/cors": "^3.0.0",
+    "@koa/router": "^8.0.5",
     "apollo-server-koa": "^2.9.15",
     "bcrypt": "^3.0.7",
     "chalk": "^3.0.0",
@@ -49,6 +50,7 @@
     "cryptr": "^6.0.1",
     "dataloader": "^2.0.0",
     "dotenv": "^8.2.0",
+    "eslint-plugin-vue": "^6.1.2",
     "glob": "^7.1.6",
     "graphql": "^14.5.8",
     "graphql-depth-limit": "^1.1.0",
@@ -75,7 +77,6 @@
     "koa-requestid": "^2.1.0",
     "koa-respond": "^2.1.0",
     "koa-response-time": "^2.1.0",
-    "koa-router": "^7.4.0",
     "koa-session": "^5.12.3",
     "koa-static": "^5.0.0",
     "koa-useragent": "^3.0.0",
