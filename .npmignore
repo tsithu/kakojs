@@ -104,5 +104,6 @@ tests
 babel.config.js
 backpack.config.js
 jest.config.js
+knexfile.js
 
 *.map

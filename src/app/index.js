@@ -26,7 +26,10 @@ export default ({
   app.start = (isReady = true) => {
     if (!isTest && (isReady || isProduction)) {
       (httpServer || app).listen({ port, host }, () => {
-        const info = { processId: process.pid, rest: api.rest.baseUrl }
+        const info = {
+          processId: process.pid,
+          ...(api.rest ? { rest: api.rest.baseUrl } : null)
+        }
         if (apolloServer) {
           const { graphqlPath, subscriptionsPath } = apolloServer
           Object.assign(info, { graphqlPath, subscriptionsPath })
