@@ -20,7 +20,8 @@ function convertType (type) {
     case 'datetime':
       return 'DateTime'
     case 'json':
-      return 'JSON'
+    case 'object':
+      return 'Json'
     default:
       throw Error('Unknow Type for GraphQl Schema')
   }
@@ -76,11 +77,12 @@ export default class BaseModel extends Model {
         const [name, val] = entry
         const isPk = name === this.idColumn
         const isRequired = isPk || (required.indexOf(name) > -1)
+        const isArray = val.isArray === true
         const valType = getType(val.type)
         const snakeCase = _.snakeCase(name)
-        const gqlType = convertType(valType)
+        const gqlType = isArray ? `[${convertType(valType)}!]` : convertType(valType)
         const gqlTypeWithStatus = `${gqlType}${isRequired ? '!' : ''}`
-        const gqlFilterType = `${gqlType}FilterInput`
+        const gqlFilterType = `${convertType(valType)}FilterInput`
         const gqlDirective = (() => {
           if (val.directive) {
             return _.isFunction(val.directive) ? val.directive() : val.directive

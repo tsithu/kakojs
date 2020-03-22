@@ -1,6 +1,6 @@
 {
   "name": "kakojs",
-  "version": "0.1.54",
+  "version": "0.1.60",
   "description": "Lightweight nodejs base minimalist framework to make api easy.",
   "keywords": [
     "Koa",

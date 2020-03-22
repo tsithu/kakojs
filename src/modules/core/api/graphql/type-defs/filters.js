@@ -12,6 +12,24 @@ export default modules => {
     }),
     '}\n'
   ]
+  const jsonFilterInput = [
+    'input JsonFilterInput {',
+    '  sq: SubQueryFilterInput',
+    '  or: [StringFilterInput!]',
+    '  and: [StringFilterInput!]',
+    '  eq: String',
+    '  iEq: String',
+    '  ne: String',
+    '  in: [String!]',
+    '  notIn: [String!]',
+    '  is: String',
+    '  isNot: String',
+    '  like: String',
+    '  notLike: String',
+    '  iLike: String',
+    '  notILike: String',
+    '}\n'
+  ]
   const stringFilterInput = [
     'input StringFilterInput {',
     '  sq: SubQueryFilterInput',
@@ -138,6 +156,7 @@ export default modules => {
   ]
   return [
     ...subQueryFilterInput,
+    ...jsonFilterInput,
     ...stringFilterInput,
     ...intFilterInput,
     ...floatFilterInput,

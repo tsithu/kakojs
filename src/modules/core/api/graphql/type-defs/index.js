@@ -12,7 +12,7 @@ function commonScalarTypes () {
     'scalar Time',
     'scalar Date',
     'scalar DateTime',
-    'scalar JSON'
+    'scalar Json'
     // 'scalar Upload'
   ]
   return strBuffer.join('\n')
