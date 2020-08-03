@@ -1,6 +1,6 @@
 {
   "name": "kakojs",
-  "version": "0.1.70",
+  "version": "0.1.73",
   "description": "Lightweight nodejs base minimalist framework to make api easy.",
   "keywords": [
     "Koa",
@@ -100,9 +100,9 @@
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
-    "@babel/plugin-proposal-private-methods": "^7.10.1",
     "@babel/plugin-proposal-decorators": "^7.7.4",
     "@babel/plugin-proposal-do-expressions": "^7.7.4",
+    "@babel/plugin-proposal-private-methods": "^7.10.1",
     "@babel/plugin-syntax-dynamic-import": "^7.7.4",
     "@babel/plugin-syntax-jsx": "^7.7.4",
     "@babel/plugin-transform-runtime": "^7.7.6",
