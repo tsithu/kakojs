@@ -1,4 +1,3 @@
-
 const TABLE = 'users'
 
 exports.seed = async knex => {

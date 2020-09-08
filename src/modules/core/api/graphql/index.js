@@ -1,4 +1,3 @@
-
 import _ from 'lodash'
 import getTypeDefs from './type-defs'
 import getResolvers from './resolvers'

@@ -1,4 +1,3 @@
-
 import _ from 'lodash'
 import pino from 'pino'
 import { name as packageName } from ':/package.json'
