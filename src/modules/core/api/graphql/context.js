@@ -10,7 +10,7 @@ function removeFromCookies (cookies, key) {
 export default (config, loaders) => (
   async ({ ctx, connection }) => {
     if (connection) return connection.context
-    const { appSecret, api } = config
+    const { appSecret, api, isProduction } = config
     const { request, cookies } = ctx
     const { header } = request
     if (header) {
@@ -44,7 +44,7 @@ export default (config, loaders) => (
                 const newAccessToken = authCtrl.generateToken(user, sub, strategy)
                 await tokenCtrl.patchById(tokenId, { accessToken: newAccessToken })
                 cookies.set(KEY_ACCESS_TOKEN, newAccessToken, {
-                  httpOnly: false, maxAge: (1000 * 60 * 60 * 24), signed: false
+                  httpOnly: false, maxAge: (1000 * 60 * 60 * 24), signed: isProduction
                 })
                 return { user: currentUser, loaders, ...ctx }
               } catch (err) {
